@@ -1,0 +1,35 @@
+<!-- Modify this -->
+{% extends "base.html" %}
+{% block title %}Ontology Search{% endblock %}
+{% block content %}
+    {% if term %}
+      <table>
+        <thead>
+          <tr>
+            <th>Class ID</th>  
+            <th>term</th>
+            <th>Preferred Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{term_object.class_id}}</td>
+            <td>{{term_object.term}}</td>
+            <td>{{ term_object.preferred_label }}</td>
+          </tr>
+        </tbody>
+      </table>
+    {% else %}
+    <div class="row">
+        <form class="col s12" method="POST">
+            <div class="input-field">
+                <input placeholder="Enter term" 
+                    id="term_search" name="term" type="text" class="validate">
+                <label for="term_search">Enter term</label>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Submit
+            </button>
+        </form>
+    </div>
+    {% endif %}
+{% endblock %}
